@@ -5,13 +5,16 @@ with open('ITT_Student.json', encoding='UTF8') as json_file:
     json_string = json.dumps(json_object)
     json_big_data = json.loads(json_string)
 
-with open('ITT_Student_ID.json', encoding='UTF8') as json_file:
-    json_object = json.load(json_file)
-    json_string = json.dumps(json_object)
-    json_student_ID = json.loads(json_string)
+f = open('D:/Python_Workspace/03_Data_Science/1. Collection/2. Open API/ITT_student_ID.txt', 'r', encoding='utf-8')
+idxes = f.readlines()
+idx = idxes[-1]
+f.close()
+# print(idx[:3] + str(int(idx[3:])+1))
 
-def menu():
-    menu = int(input("""<<JSON기반 관리 학생 정보 관리 프로그램>>>
+def print_menu():
+    menu = int(input("""
+*********************************************************************
+<<JSON기반 관리 학생 정보 관리 프로그램>>>
     1. 학생 정보입력
     2. 학생 정보조회
     3. 학생 정보수정
@@ -20,8 +23,7 @@ def menu():
     메뉴를 선택하세요: """))
     print()
     return menu
-
-def menu2():
+def print_menu2():
     type = int(input("""1. 전체 학생정보 조회 
      검색 조건 선택
     2. ID 검색
@@ -38,8 +40,8 @@ def menu2():
     return type
 
 def Input_Student_Info():
-    student_ID = 'ITT001'
-    # Student_info_list = []
+    student_ID = 'ITT007' #idx[:3] + int(idx[3:])+1
+    Student_info_list = []
     json_big_data.append(
     {
         "address": input('주소 (예: 대구광역시 동구 아양로 135): '),
@@ -117,6 +119,8 @@ def Search(type, find_key):
 
     count = 0
     student_ID = []
+
+
     for Student in json_big_data:
         if type>=2 and type<=5:
             if find_key == Student[type]:
@@ -137,18 +141,31 @@ def Search(type, find_key):
 
     if count == 1:
         Search_ID(student_ID[0])
-    else:
+    elif count >=2:
         print(student_ID)
+    elif count == 0:
+        print("찾는 값이 없습니다.")
 
 while True:
-    menu = int(input("""<<JSON기반 관리 학생 정보 관리 프로그램>>>
-        1. 학생 정보입력
-        2. 학생 정보조회
-        3. 학생 정보수정
-        4. 학생 정보삭제
-        5. 프로그램 종료
-        메뉴를 선택하세요: """))
-    print()
+    menu = print_menu()
+
+    if menu == 1:
+        Input_Student_Info()
+
+    elif menu == 2:
+        type = print_menu2()
+        if type ==1:
+            Total_Search()
+        elif type >=2 and type <=9:
+            find_key = input("검색어를 입력하세요: ")
+            Search(type, find_key)
+        elif type == 10:
+            print("")
+
+
+
+
+
 
     if menu == 5:
         with open('ITT_Student.json', 'w', encoding='utf8') as outfile:
@@ -157,19 +174,6 @@ while True:
             print('ITT_Student.json SAVED')
         print("학생 정보 관리 프로그램을 종료합니다.")
         break
-
-    if menu == 1:
-        Input_Student_Info()
-
-    elif menu == 2:
-        type = menu2()
-        if type ==1:
-            Total_Search()
-        elif type >=2 and type <=9:
-            find_key = input("검색어를 입력하세요: ")
-            Search(type, find_key)
-        elif type == 10:
-            print("")
 
     # elif menu == 4:
     #     ID = input('삭제할 학생 ID를 입력하세요: ')

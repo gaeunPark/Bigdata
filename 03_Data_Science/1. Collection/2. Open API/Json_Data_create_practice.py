@@ -1,53 +1,20 @@
 import json
-# bigdata = []
-# student_ID = 'ITT001'
-# student_age = '24'
-# student_name ='박가은'
-# address = '대구광역시 동구 아양로 135): '
-# course_code = 'IB171106'
-# course_name = 'IOT빅데이터 실무반'
-# teacher = '이현구'
-# open_date = '2017-11-06'
-# close_date = '2018-09-05'
-# num_of_course_learned = '1'
-#
-# bigdata.append(
-# {
-#         "address": address,
-#         "student_ID": student_ID,
-#         "student_age": student_age,
-#         "student_name": student_name,
-#         "total_course_info": {
-#             "learning_course_info": [
-#                 {
-#                     "close_date": close_date,
-#                     "course_code": course_code,
-#                     "course_name": course_name,
-#                     "open_date": open_date,
-#                     "teacher": teacher
-#                 }
-#             ],
-#             "num_of_course_learned": num_of_course_learned
-#         }
-# }
-# )
-# print('프로그램 종료')
+with open('ITT_Student.json', encoding='UTF8') as json_file:
+    json_object = json.load(json_file)
+    json_string = json.dumps(json_object)
+    json_big_data = json.loads(json_string)
 
+find_key = '김기'
+count = 0
+student_ID = []
 
-
-# Student_info_list['address'] = address
-# Student_info_list['student_ID'] = student_ID
-# Student_info_list['student_age'] = student_age
-# Student_info_list['student_name'] = student_name
-# Student_info_list['total_course_info'] = total_course_info
-
-# course_info['close_date'] = close_date
-# course_info['course_code'] = course_code
-# course_info['course_name'] = course_name
-# course_info['open_date'] = open_date
-# course_info['teacher'] = teacher
-
-
+for Student in json_big_data:
+    if Student['student_ID'].find(find_key) != 0:
+        count += 1
+        student_ID.append(Student['student_ID'])
+    else:
+        print("찾는값이 없습니다.")
+print(count)
 
 # with open('ITT_Student.json', encoding='UTF8') as json_file:
 #     json_object = json.load(json_file)
@@ -61,7 +28,6 @@ import json
 # * 주소: %s
 # * 수강 정보
 #  + 과거 수강 횟수: %s""" %( Student['student_ID'], Student['student_name'], Student['student_age'], Student['address'], Student['total_course_info']['num_of_course_learned']))
-
 
 
 
