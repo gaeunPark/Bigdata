@@ -2,7 +2,7 @@
     {
         "address": "대구광역시 파티마 병원 옆 포시즌 302호",
         "student_ID": "ITT001",
-        "student_age": 31,
+        "student_age": "34",
         "student_name": "김기정",
         "total_course_info": {
             "learning_course_info": [
@@ -11,7 +11,7 @@
                     "course_code": "IB171106",
                     "course_name": "IoT 빅데이터 실무반",
                     "open_date": "2017-11-06",
-                    "teacher": "이현구"
+                    "teacher": "박가은"
                 }
             ],
             "num_of_course_learned": 2
@@ -104,39 +104,13 @@
         }
     },
     {
-        "address": "dfljs",
-        "student_ID": "ITT006",
-        "student_age": "dkjfl",
-        "student_name": "skdj",
+        "address": "sdkf",
+        "student_ID": "ITT001",
+        "student_age": "sdkf",
+        "student_name": "dklf",
         "total_course_info": {
-            "learning_course_info": [
-                {
-                    "close_date": "dkjf",
-                    "course_code": "sdkjf",
-                    "course_name": "sdkjf",
-                    "open_date": "sdjf",
-                    "teacher": "skdf"
-                }
-            ],
-            "num_of_course_learned": "2"
-        }
-    },
-    {
-        "address": "dljf",
-        "student_ID": "ITT007",
-        "student_age": "sjdlf",
-        "student_name": "skdjfksjdf",
-        "total_course_info": {
-            "learning_course_info": [
-                {
-                    "close_date": "djfk",
-                    "course_code": "skdjf",
-                    "course_name": "sdkf",
-                    "open_date": "sdkf",
-                    "teacher": "sdkfj"
-                }
-            ],
-            "num_of_course_learned": "2"
+            "learning_course_info": [],
+            "num_of_course_learned": "skdjf"
         }
     }
 ]
