@@ -7,15 +7,21 @@ api = Api(app)
 
 class CreateUser(Resource):
     def get(self):
+        print("++++")
         return{'status':'cu1 success'}
 api.add_resource(CreateUser,'/user')
+
 class CreateUser2(Resource):
     def get(self):
         return{'status':'cu2 success'}
 api.add_resource(CreateUser2,'/user2')
+
 class Multi(Resource):
     def get(self,num):
-        return{'result':num*10}
+        return{'result':num*50}
 api.add_resource(Multi,'/multi/<int:num>')
+
 if __name__ == '__main__':
-    app.run(host="192.168.226.1")
+    app.run(host="192.168.0.40")
+
+# http://192.168.0.40:5000/multi/10

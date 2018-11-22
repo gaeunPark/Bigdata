@@ -84,7 +84,7 @@ def smart_mode():
         get_realtime_weather_info()
 
 print('<스마트 홈네트워크 시뮬레이션 프로그램 ver 1.0>')
-print('                              - 이현구 -')
+print('                              - 박가은 -')
 while True:
     print_main_menu()
     menu_num = int(input('메뉴를 선택하세요: '))
